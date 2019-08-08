@@ -147,6 +147,12 @@ function ProcessExcel(data,dateColumn,timeColumn) {
         var dvExcel = document.getElementById("dvExcel");
         dvExcel.innerHTML = "";
         dvExcel.appendChild(table);
+
+        chrome.storage.sync.set({
+            "invoiceData": invoiceData
+        },function () {
+            console.log("Invoice pronto per l'inserimento",invoiceData);
+        })
 };
 
 chrome.storage.sync.get("invoiceData", function (data) {
@@ -158,11 +164,6 @@ chrome.storage.sync.get("invoiceData", function (data) {
 
 
 function completeInvoice() {
-    chrome.storage.sync.set({
-        "invoiceData": invoiceData
-    },function () {
-        console.log("Invoice pronto per l'inserimento",invoiceData);
-    })
     chrome.tabs.executeScript({
       file: 'content.js'
     }); 
