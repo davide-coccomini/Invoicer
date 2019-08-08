@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body{
+        width: 290px;
+      }
+      p{
+          text-align:"center"
+      }
+      .numberInput {
+          width: 35px;
+          margin-left: 5px;
+          margin-top: 5px;
+      }
+    </style>
+    <script type="text/javascript" src="libs/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="libs/jszip.js"></script>
+    <script type="text/javascript" src="libs/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="global.js"></script>
+  </head>
+  <body>
+    <p>Benvenuto su Invoicer! Carica il tuo file Excel per aggiornare automaticamente l'invoice su Appen.</p>
+    
+    <label for="dateColumn">Colonna data (da 0)</label><input type="number" id="dateColumn" class="numberInput" min="0"> <br>
+    <label for="timeColumn">Colonna tempo (da 0)</label><input type="number" id="timeColumn" class="numberInput" min="0"><br><br> 
+    
+    <input type="file" id="fileUpload" />
+    <input type="button" id="button" value="Carica PDF">
+    <div id="dvExcel"></div>
+    <div id="stored" style="display:none">
+    <p>Una versione dell'invoice si trova in memoria, entrando sulla pagina di invoicing la compilazione avverr&agrave; automaticamente. Vuoi eliminarla?</p>
+    <input type="button" value="Rimuovi invoice">
+    </div>
+
+    
+    <input type="button" id="buttonInvoice" value="Compila il form">
+    <script src="popup.js"></script>
+  </body>
+  
+</html>
