@@ -1,5 +1,4 @@
 for(var i=1; i<=rows.length; i++){
-    console.log("start for ", i)
     var cal = document.getElementsByClassName("invoice-entry alt")[i].children[0].children[1]
     cal.focus();
     openPicker(cal);
@@ -9,13 +8,10 @@ for(var i=1; i<=rows.length; i++){
     var date = invoiceData[i-1]["date"].split("/");
     var day = date[0];
 
-    
-    console.log("get first row")
+
     var firstRow = datePicker.children[1].children[0];
     var j = 0;
     for(; j <= 10; j++){
-        
-    console.log("get children of first row ")
         if(!firstRow.children[j].className.includes("disabled")){
             break;
         }
@@ -30,7 +26,6 @@ for(var i=1; i<=rows.length; i++){
         c = (day - 1) - ((7*r) - offset) 
     }
     
-    console.log("end for ")
     datePicker.children[1].children[r].children[c].click()
     
     

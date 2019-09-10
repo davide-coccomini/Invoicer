@@ -10,20 +10,20 @@ button.onclick = function(element) {
             return;
         }
 
-        //Validate whether File is valid Excel file.
+        // Validate whether File is valid Excel file.
         var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx)$/;
         if (regex.test(fileUpload.value.toLowerCase())) {
             if (typeof (FileReader) != "undefined") {
                 var reader = new FileReader();
  
-                //For Browsers other than IE.
+                // For Browsers other than IE.
                 if (reader.readAsBinaryString) {
                     reader.onload = function (e) {
                         ProcessExcel(e.target.result,dateColumn,timeColumn);
                     };
                     reader.readAsBinaryString(fileUpload.files[0]);
                 } else {
-                    //For IE Browser.
+                    // For IE Browser.
                     reader.onload = function (e) {
                         var data = "";
                         var bytes = new Uint8Array(e.target.result);
