@@ -39,10 +39,12 @@ chrome.storage.sync.get("invoiceData", function (data) {
 
         // Compile Dates
         var splittedDate = invoiceData[j]["date"].split("/");
-        var day = (splittedDate[0]<10)?"0"+splittedDate[0]:splittedDate[1];
-        var month = (splittedDate[1]<10)?"0"+splittedDate[1]:splittedDate[1];
+       
+        var day = (splittedDate[1]<10)?"0"+splittedDate[1]:splittedDate[1];
+        var month = (splittedDate[0]<10)?"0"+splittedDate[0]:splittedDate[0];
         var year = "20"+splittedDate[2];
-        var date = day+"/"+month+"/"+year;
+        var date = month+"/"+day+"/"+year;
+        console.log(splittedDate[0]<10);
         datePickers[j].value = date;
 
 
